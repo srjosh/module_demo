@@ -1,0 +1,103 @@
+<?php
+/**
+ * @file
+ * This is an example outlining how a developer can make a module.
+ */
+
+/**
+ * Implements hook_menu().
+ *
+ * Set up menu callbacks for all our example cases.
+ */
+function module_demo_menu() {
+  $items = array();
+
+  $items['node/%/counter'] = array(
+    'title' => 'Counter',
+    'page callback' => 'module_demo_counter',
+    'page arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+    'access callback' => TRUE,
+  );
+
+  $items['counter/multiple/%'] = array(
+    'title' => 'Counter',
+    'page callback' => 'module_demo_counter_multiple',
+    'page arguments' => array(2),
+    'type' => MENU_NORMAL_ITEM,
+    'access callback' => TRUE,
+  );
+
+  $items['demo/efq'] = array(
+    'title' => 'EFQ Demo',
+    'page callback' => 'module_demo_efq',
+    'type' => MENU_NORMAL_ITEM,
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * Menu callback.
+ *
+ * Adds one to our counter.
+ */
+function module_demo_counter($nid) {
+  // Read the node based on the nid.
+  $node = node_load($nid);
+  // Check a node value.
+  if ($node->type == "play" || $node->type == "characters") {
+    // Change a value on the field.
+    if (!empty($node->field_view_counter)) {
+      $node->field_view_counter[LANGUAGE_NONE][0]['value']++;
+    }
+    else {
+      $node->field_view_counter[LANGUAGE_NONE][0]['value'] = 1;    
+    }
+    // Save the node.
+    node_save($node);
+  }
+  return "COUNTER: " . $node->field_view_counter[LANGUAGE_NONE][0]['value'];
+}
+
+/**
+ * Menu callback.
+ *
+ * Adds one to our counters.
+ * http://module_demo.local/counter/multiple/1+7+11
+ */
+function module_demo_counter_multiple($nids) {
+  $output = "<ul>";
+
+  // Read the nodes based on the nids.
+  $nids = explode(" ", $nids);
+
+  $nodes = node_load_multiple($nids);
+
+  // Loop through nodes.
+  foreach($nodes as $node) {
+    // Check a node value.
+    if ($node->type == "play") {
+      // Change a value on the field.
+      if (!empty($node->field_view_counter)) {
+        $node->field_view_counter[LANGUAGE_NONE][0]['value']++;
+      }
+      else {
+        $node->field_view_counter[LANGUAGE_NONE][0]['value'] = 1;    
+      }
+      // Save the node.
+      node_save($node);
+      $output .= "<li>COUNTER for " . $node->title . ": " . $node->field_view_counter[LANGUAGE_NONE][0]['value'] . "</li>";
+    }
+  }
+  return $output;
+}
+
+/**
+ * Entity Field Query demo.
+ */
+function module_demo_efq() {
+
+  return "DEMO";
+}

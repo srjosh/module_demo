@@ -1,0 +1,58 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the module_demo module.
+ */
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ */
+function module_demo_schema() {
+/*  $schema['module_demo'] = array(
+    'description' => 'Stores example person entries for demonstration purposes.',
+    'fields' => array(
+      'pid'  => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique person ID.',
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ),
+      'surname' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Surname of the person.',
+      ),
+    ),
+    'primary key' => array('pid'),
+    'indexes' => array(
+      'name'    => array('name'),
+      'surname' => array('surname'),
+    ),
+  );  */
+  
+//  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ *
+ * In Drupal 7, there is no need to install schema using this hook, the schema
+ * is already installed before this hook is called.
+ *
+ * We will create a default entry in the database.
+ *
+ * @see hook_install()
+ * @ingroup module_demo
+ */
+function module_demo_install() {
+}
+
