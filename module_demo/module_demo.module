@@ -46,6 +46,7 @@ function module_demo_menu() {
 function module_demo_counter($nid) {
   // Read the node based on the nid.
   $node = node_load($nid);
+  
   // Check a node value.
   if ($node->type == "play" || $node->type == "characters") {
     // Change a value on the field.
@@ -98,6 +99,25 @@ function module_demo_counter_multiple($nids) {
  * Entity Field Query demo.
  */
 function module_demo_efq() {
+    $query = new EntityFieldQuery();
+    $query
+		->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'characters')
+		->propertyCondition('status', 1)
+		->propertyOrderBy('title', 'ASC');
+    $query->fieldCondition('field_gender', 'value', array('Female'));
+		
+    
+    $result = $query->execute();
 
-  return "DEMO";
+    $output = "<ul>";    
+    if (!empty($result['node'])) {
+        foreach ($result['node'] as $nid) { 
+            $node = node_load($nid->nid);
+            $output .= "<li>" . $node->title . "</li>";
+        }
+    }
+    
+    return $output;
+    
 }
