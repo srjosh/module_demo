@@ -10,7 +10,7 @@
 function characters_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_age_range'
+  // Exported field_base: 'field_age_range'.
   $field_bases['field_age_range'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -37,7 +37,7 @@ function characters_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_brief_description'
+  // Exported field_base: 'field_brief_description'.
   $field_bases['field_brief_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -58,7 +58,7 @@ function characters_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_gender'
+  // Exported field_base: 'field_gender'.
   $field_bases['field_gender'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -84,7 +84,7 @@ function characters_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_view_counter'
+  // Exported field_base: 'field_view_counter'.
   $field_bases['field_view_counter'] = array(
     'active' => 1,
     'cardinality' => 1,

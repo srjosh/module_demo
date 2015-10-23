@@ -10,7 +10,7 @@
 function characters_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-characters-field_age_range'
+  // Exported field_instance: 'node-characters-field_age_range'.
   $field_instances['node-characters-field_age_range'] = array(
     'bundle' => 'characters',
     'default_value' => array(
@@ -51,7 +51,7 @@ function characters_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-characters-field_brief_description'
+  // Exported field_instance: 'node-characters-field_brief_description'.
   $field_instances['node-characters-field_brief_description'] = array(
     'bundle' => 'characters',
     'default_value' => NULL,
@@ -91,7 +91,7 @@ function characters_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-characters-field_gender'
+  // Exported field_instance: 'node-characters-field_gender'.
   $field_instances['node-characters-field_gender'] = array(
     'bundle' => 'characters',
     'default_value' => array(
@@ -132,7 +132,7 @@ function characters_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-characters-field_view_counter'
+  // Exported field_instance: 'node-characters-field_view_counter'.
   $field_instances['node-characters-field_view_counter'] = array(
     'bundle' => 'characters',
     'default_value' => array(

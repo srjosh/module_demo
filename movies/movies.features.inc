@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * characters.features.inc
+ * movies.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function characters_ctools_plugin_api($module = NULL, $api = NULL) {
+function movies_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -16,21 +16,21 @@ function characters_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function characters_views_api($module = NULL, $api = NULL) {
+function movies_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function characters_node_info() {
+function movies_node_info() {
   $items = array(
-    'characters' => array(
-      'name' => t('Characters'),
+    'movie' => array(
+      'name' => t('Movie'),
       'base' => 'node_content',
-      'description' => t('Characters that appear in one or more of the Star Wars films.'),
+      'description' => t('Movies in the Star Wars Series.'),
       'has_title' => '1',
-      'title_label' => t('Name'),
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

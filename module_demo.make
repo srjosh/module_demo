@@ -20,4 +20,4 @@ projects[devel][version] = 1.5
 projects[strongarm][version] = 2.0
 projects[pathauto][version] = 1.3
 projects[token][version] = 1.6
-
+projects[diff][version] = 3.2
