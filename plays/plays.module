@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Plays feature.
- */
-
-include_once 'plays.features.inc';
