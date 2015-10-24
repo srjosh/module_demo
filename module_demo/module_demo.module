@@ -46,9 +46,9 @@ function module_demo_menu() {
 function module_demo_counter($nid) {
   // Read the node based on the nid.
   $node = node_load($nid);
-  
+ dpm($node);
   // Check a node value.
-  if ($node->type == "play" || $node->type == "characters") {
+  if ($node->type == "movie" || $node->type == "characters") {
     // Change a value on the field.
     if (!empty($node->field_view_counter)) {
       $node->field_view_counter[LANGUAGE_NONE][0]['value']++;
@@ -66,7 +66,7 @@ function module_demo_counter($nid) {
  * Menu callback.
  *
  * Adds one to our counters.
- * http://module_demo.local/counter/multiple/1+7+11
+ * http://module_demo.local/counter/multiple/36+42+45
  */
 function module_demo_counter_multiple($nids) {
   $output = "<ul>";
@@ -79,7 +79,7 @@ function module_demo_counter_multiple($nids) {
   // Loop through nodes.
   foreach($nodes as $node) {
     // Check a node value.
-    if ($node->type == "play") {
+    if ($node->type == "movie") {
       // Change a value on the field.
       if (!empty($node->field_view_counter)) {
         $node->field_view_counter[LANGUAGE_NONE][0]['value']++;
@@ -105,6 +105,8 @@ function module_demo_efq() {
 		->entityCondition('bundle', 'characters')
 		->propertyCondition('status', 1)
 		->propertyOrderBy('title', 'ASC');
+
+
     $query->fieldCondition('field_gender', 'value', array('Female'));
 		
     
