@@ -1,5 +1,5 @@
 name = Module Demo
-description = An example module showing how do different things.
+description = An example module showing how do different things - created for demonstrations with P2.
 package = Phase2
 core = 7.x
 
